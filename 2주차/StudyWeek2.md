@@ -66,7 +66,6 @@
     > 변수에 anotherVar가 false일 시 자동으로 dafault value가 할당.
 
 7) Ternary Operator(삼항 연산자)
-   - ''
 
 ### 5. Variables (변수) 
 1) `let`, `var`
@@ -279,50 +278,49 @@
    - 반복 특화 js 내장 배열 매서드 ==  iteration methods
    -  <a src =https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods>`[참고] iterator(반복자)에 대한 문서 `</a>
   2) method
-     1) `forEach(callbackfunc)`
-         - `undefined` 반환  
-        ```
-        const fruits = ['mango', 'papaya', 'pineapple', 'apple'];
+        1) `forEach(callbackfunc)`
+            - `undefined` 반환  
+           ```
+           const fruits = ['mango', 'papaya', 'pineapple', 'apple'];
 
-        // Iterate over fruits below
-        fruits.forEach(function(fruits){
-        console.log('I want to eat a I want to eat a'+fruits)})
-        ```
+           // Iterate over fruits below
+           fruits.forEach(function(fruits){
+           console.log('I want to eat a I want to eat a'+fruits)})
+           ```
 
-     2) `map()`
-        - __새로운 배열__ 반환
-        - python과 동일
-        ```
-        const animals = ['Hen', 'elephant', 'llama', 'leopard', 'ostrich', 'Whale', 'octopus', 'rabbit', 'lion', 'dog'];
+        2) `map()`
+           - __새로운 배열__ 반환
+           - python과 동일
+           ```
+           const animals = ['Hen', 'elephant', 'llama', 'leopard', 'ostrich', 'Whale', 'octopus', 'rabbit', 'lion', 'dog'];
 
-        const secretMessage = animals.map(function(animals){return animals[0]})
-        console.log(secretMessage.join(''));
+           const secretMessage = animals.map(function(animals){return animals[0]})
+           console.log(secretMessage.join(''));
 
-        const bigNumbers = [100, 200, 300, 400, 500];
-        const smallNumbers = bigNumbers.map(function(bigNumbers){return bigNumbers/100})
-        ````
-     3) `filter()`
-        - 특정 요소 필터링 후 __새로운 배열__ 반환
-        - 이때 필터링의 condition이 콜백 함수에서 정의
-     4) `findIndex()`
-        - 배열에서 첫번째로 만족하는 값의 인덱스를 반환 
-     5) `reduce()`
-        - 반복하며 배열의 값을 줄임 -> 단 하나의 값을 반환
-        ```
-        const newNumbers = [1, 3, 5, 7];
+           const bigNumbers = [100, 200, 300, 400, 500];
+           const smallNumbers = bigNumbers.map(function(bigNumbers){return bigNumbers/100})
+           ````
+        3) `filter()`
+           - 특정 요소 필터링 후 __새로운 배열__ 반환
+           - 이때 필터링의 condition이 콜백 함수에서 정의
+        4) `findIndex()`
+           - 배열에서 첫번째로 만족하는 값의 인덱스를 반환 
+        5) `reduce()`
+           - 반복하며 배열의 값을 줄임 -> 단 하나의 값을 반환
+           ```
+           const newNumbers = [1, 3, 5, 7];
 
-        const newSum = newNumbers.reduce(function(accumulator, currentValue){
-          console.log('The value of accumulator: ', accumulator);
-          console.log('The value of currentValue: ', currentValue);
+           const newSum = newNumbers.reduce(function(accumulator, currentValue){
+             console.log('The value of accumulator: ', accumulator);
+             console.log('The value of currentValue: ', currentValue);
 
-          return accumulator + currentValue
-          }, 10)
+             return accumulator + currentValue
+             }, 10)
 
-        console.log(newSum)
-        ```
-     6) `some()`, `every()`
-        - boolean 타입 반환
+           console.log(newSum)
+           ```
+        6) `some()`, `every()`
+           - boolean 타입 반환
 
 ### 13. Object (객체)
-  - 기본 데이터 타입 이외의 사용자가 객체를 만들 수 있음. 
-  - 
+  
