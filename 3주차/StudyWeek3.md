@@ -66,7 +66,7 @@ _\* 편한 이해를 위해 교재와 순서를 다르게 진행_
     -   동기는 요청한 작업에 대해, 완료 여부를 따져 순차대로 처리하는 것.
     -   비동기는 요청한 작업의 완료 여부를 따지지 않음. 여러개에 요청에 있어 응답에서의 순서가 지켜지지 않음.
 
-```
+```js
 function longRunningTask() {
   // 오래 걸리는 작업
   console.log('작업 끝');
@@ -112,7 +112,7 @@ console.log('다음 작업');
 -   **태스크 큐 (Task Queue, Callback Queue)**:
     -   이벤트 발생 후, 백그라운드에서는 태스크 큐로 타이머나 이벤트 리스너의 콜백 함수를 보냄
 
-```
+```js
 function run() { 
   console.log('3초 후 실행');
 }
@@ -152,7 +152,7 @@ $ npm install -g npm
 
 ### **1) 객체 리터럴**
 
-```
+```js
 var sayNode = function() {
   console.log('Node');
 };
@@ -169,7 +169,7 @@ oldObject.sayJS(); // JS
 console.log(oldObject.ES6); // Fantastic
 ```
 
-```
+```js
 const newObject = {
   sayJS() {
     console.log('JS');
@@ -190,7 +190,7 @@ console.log(newObject.ES6); // Fantastic
 
 ### **2) 화살표 함수(Arrow Function)**
 
-```
+```js
 function add1(x, y) {
   return x + y;
 }
@@ -204,7 +204,7 @@ const add3 = (x, y) => x + y;
 const add4 = (x, y) => (x + y);
 ```
 
-```
+```js
 function not1(x) {
   return !x;
 }
@@ -220,7 +220,7 @@ const not2 = x => !x;
 
 -   기존 function 키워드 이용법에서 this 바인딩과 다름
 
-```
+```js
 var relationship1 = {
   name: 'zero',
   friends: ['nero', 'hero', 'xero'],
@@ -254,7 +254,7 @@ relationship2.logFriends();
 
 -   ( 구조에 맞춰 새로 만들 변수들 ) = ( 구조 분해할 원본 객체, 배열 )
 
-```
+```js
 var candyMachine = {
   status: {
     name: 'node',
@@ -287,7 +287,7 @@ const { getCandy, status: { count } } = candyMachine;
     -   this가 달라질 수 있으므로 주의
 -   status : {count} 값의 복사본을, count에 저장
 
-```
+```js
 var array = [‘nodejs’, {}, 10, true];
 var node = array[0];
 var obj = array[1];
@@ -305,7 +305,7 @@ const [node, obj, , bool] = array;
 -   기존 프로토타입 문법을 클래스 형식으로 표현 가능하도록 함.
 -   주의) 내부적으로는 프로토타입으로 동작함.
 
-```
+```js
 // Prototype
 
 var Human = function(type) {
@@ -335,7 +335,7 @@ var oldZero = new Zero('human', 'Zero', 'Cho');
 Human.isHuman(oldZero); // true
 ```
 
-```
+```js
 // Class
 class Human {
   constructor(type = 'human') {
@@ -379,7 +379,7 @@ Human.isHuman(newZero); // true
 -   비동기 처리를 위해 도입되었음. 
 -   미래에 어떤 종류의 결과가 반환됨을 약속해주는(promise) 객체 /  실행은 바로하되 결과값은 나중에 받는 객체
 
-```
+```js
 const condition = true; // true이면 resolve, false이면 reject
 
 const promise = new Promise((resolve, reject) => {
@@ -411,7 +411,7 @@ promise
 
 _[https://developer.mozilla.org/ko/docs/Learn\_web\_development/Extensions/Async\_JS/Promises](https://developer.mozilla.org/ko/docs/Learn_web_development/Extensions/Async_JS/Promises)_
 
-```
+```js
 //callback 이용
 function findAndSaveUser(Users) {
   Users.findOne({}, (err, user) => { // 첫 번째 콜백
@@ -431,7 +431,7 @@ function findAndSaveUser(Users) {
 }
 ```
 
-```
+```js
 function findAndSaveUser(Users) {
   Users.findOne({})
     .then((user) => {
@@ -472,7 +472,7 @@ Promise.all([promise1, promise2])
 -   성공/실패 구분 없이 결과 배열 반환
 -   각 프로미스의 결과값 포함 조회(status) 가능
 
-```
+```js
 const promise1 = Promise.resolve('성공1');
 const promise2 = Promise.reject('실패2');
 const promise3 = Promise.resolve('성공3');
@@ -502,7 +502,7 @@ Promise.allSettled([promise1, promise2, promise3])
 
 _**[https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/async\_function](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/async_function)**_
 
-```
+```js
 // promise
 function findAndSaveUser(Users) {
   Users.findOne({})
@@ -522,7 +522,7 @@ function findAndSaveUser(Users) {
 }
 ```
 
-```
+```js
 // async/await 문 이용
 async function findAndSaveUser(Users) {
   let user = await Users.findOne({});
@@ -535,7 +535,7 @@ async function findAndSaveUser(Users) {
 
 -   try/catch 문으로 에러 처리 가능
 
-```
+```js
 async function findAndSaveUser(Users) {
   try {
     let user = await Users.findOne({});
@@ -551,7 +551,7 @@ async function findAndSaveUser(Users) {
 
 -   for 문 이용 가능
 
-```
+```js
 const promise1 = Promise.resolve('성공1');
 const promise2 = Promise.resolve('성공2');
 (async () => {
@@ -572,7 +572,7 @@ const promise2 = Promise.resolve('성공2');
     -   속성명(key)으로 값 사용 가능
     -   .size() 이용해 속성의 수를 쉽게 알 수 있음 
 
-```
+```js
 const m = new Map();
 
 m.set('a', 'b'); // set(키, 값)으로 Map에 속성 추가
@@ -608,7 +608,7 @@ console.log(m.size); // 0
     -   반복문 사용 가
     -   다른 언어의 Set과 동일 개념
 
-```
+```js
 const s = new Set();
 s.add(false); // add(요소)로 Set에 추가합니다
 s.add(1);
@@ -636,7 +636,7 @@ s.clear(); // clear()로 전부 제거합니다
 -   Python에서 list -> set -> list로 변환해 중복을 제거하는 것처럼
 -   JavaScript의 Set도 Array의 중복을 제거하는 역할로 사용가능
 
-```
+```js
 const arr = [1, 3, 2, 7, 2, 6, 3, 5];
 
 const s = new Set(arr);
@@ -653,7 +653,7 @@ console.log(result); // 1, 3, 2, 7, , 5
 -   || 연산자 대용으로 사용
 -    falsy 값(0, '', false, NaN, null, undefined) 중 null과 undefined만 따로 구분
 
-```
+```js
 const a = 0;
 const b = a || 3; // || 연산자는 falsy 값이면 뒤로 넘어감
 console.log(b); // 3
@@ -676,7 +676,7 @@ console.log(h); // 3;
 -   null이나 undefined의 속성을 조회하는 경우 에러가 발생하는 것을 방지
 -   이때, 아래의 코드에 c?.d와 c?.f(), c?.\[0\]의 값은 undefined
 
-```
+```js
 const a = {}
 a.b; // a가 객체이므로 문제없음
 
@@ -712,7 +712,7 @@ c?.[0]; // 문제없음
 -   페이지 이동 없이 서버에 요청을 보내고 응답을 받는 기술
 -   GET 요청
 
-```
+```js
 axios.get('https://www.zerocho.com/api/get')
   .then((result) => {
     console.log(result);
@@ -723,7 +723,7 @@ axios.get('https://www.zerocho.com/api/get')
 });
 ```
 
-```
+```js
 (async () => {
   try {
     const result = await axios.get('https://www.zerocho.com/api/get');
@@ -737,7 +737,7 @@ axios.get('https://www.zerocho.com/api/get')
 
 -   POST 요청
 
-```
+```js
 (async () => {
   try {
     const result = await axios.post('https://www.zerocho.com/api/post/json', {
@@ -758,7 +758,7 @@ axios.get('https://www.zerocho.com/api/get')
 
 -   HTML form 태그의 데이터를 동적으로 제어할 수 있는 기능
 
-```
+```js
 (async () => {
   try {
     const formData = new FormData();
@@ -780,7 +780,7 @@ axios.get('https://www.zerocho.com/api/get')
 -   AJAX 요청을 보낼 때, ‘http://localhost:4000/search/노드’처럼 주소에 한글이 들어가는 경우
 -   한글 주소를 이해하지 못하는 경우를 방지하기 위해 사용.
 
-```
+```js
 (async () => {
   try {
     const result = await axios.get(`https://www.zerocho.com/api/search/${encodeURIComponent('노드')}`);
@@ -804,7 +804,7 @@ axios.get('https://www.zerocho.com/api/get')
     -   태그의 속성으로 data- 를 넣음. 이것을 데이터 속성이라고 함.
     -   자바스크립트로 쉽게 접근 가능
 
-```
+```js
 <ul>
   <li data-id="1" data-user-job="programmer">Zero</li>
   <li data-id="2" data-user-job="designer">Nero</li>
@@ -836,7 +836,7 @@ axios.get('https://www.zerocho.com/api/get')
 
 #### 1\. 아래 코드를 화살표 함수로 변환하시오.
 
-```
+```js
 function multiply(a, b) {
   return a * b;
 }
@@ -844,7 +844,7 @@ function multiply(a, b) {
 
 2. 아래의 빈칸 1,2에 들어갈 키워드를 작성하시오.
 
-```
+```js
 (  1  ) function getUserData(Users) {
   try {
     let user = (  2  ) Users.findOne({});
@@ -873,7 +873,7 @@ function multiply(a, b) {
    
 **<코드작성QUIZ 답>**
 
-1.  ```
+1.  ```js
     const multiply = (a, b) => a * b;
     ```
     

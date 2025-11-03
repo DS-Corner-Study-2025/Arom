@@ -53,7 +53,7 @@
    - `<`,`>`,`<=`,`>=`,`===`,`!==`
     > <b>[참고] `===(!==)` 와 `==(!=)`의 차이?</b> <br>
     >  전자 -> type까지 비교, 후자 -> 값 비교
-    ```
+    ```js
       5 === '5' // false 
       5 == '5'  // true
       5 !== '5' // true
@@ -72,7 +72,7 @@
    - ES6 방식 
 2) `const` constant variable
    - 상수 : 재할당 불가능.
-      ```
+      ```js
       TypeError: Assignment to constant variable.
       ```
 
@@ -98,7 +98,7 @@
 1) 표기 
      1) `+`
          -  String Concatenation(문자열 연결)
-         ```
+         ```js
          console.log("Hello "+"World) 
          // Hello World
           ```
@@ -115,13 +115,13 @@
   
 ### 8. Conditional(조건문)
 1) `if`
-    ```
+    ```js
     if(조건){ . . 실행문 . .}
     else if(조건){ . . 실행문 . . }
     else{조건 만족 x 시의 실행문}
     ```
 2) `switch`
-   ```
+   ```js
    switch(expression){
     case 1 : 실행문 break;
     case 2 : . . .
@@ -131,7 +131,7 @@
 
 ### 9. Loops (반복문)
 1) `for` loop
-   ```
+   ```js
     for (let i = 0; i < 4; i++) {
     . . .
     }
@@ -142,14 +142,14 @@
 2) Nested Loop
    - 반복문 내부에 반복문
 3) `while` loop 
-   ```
+   ```js
    while(조건문){
     조건문이 true일 동안 반복될 실행문
    }
    ```
    - 무한루프 주의.
 4) `do - while` loop
-      ```
+      ```js
       do{
         무조건 한번은 실행될 실행문
         이후 조건 확인 후, loop
@@ -160,7 +160,7 @@
 
 ### 10. function 
 1) Function Declarations (함수 선언)
-   ```
+   ```js
    function 함수명( parameter1 , parameter2 ){
     func body
    }
@@ -184,7 +184,7 @@
     > - 매개변수가 하나 -> `()`생략 가능 , 단일 줄 블록 -> `{}`, `return` 생략 가능 (*implicit return )
 
 2) Calling a Function (함수 호출) 
-    ```
+    ```js
     function sayHelloMessage(){
       console.log('Hello');
     }
@@ -258,7 +258,7 @@
 3) function as Parameter
      - 함수의 매개변수로 함수를 받을 수 있음. - callback함수를 넘겨줌. 마치 eventlistner 
      - 익명 함수를 인수로 넘겨줄 수 있음
-       ```
+       ```js
        const addTwo = num => {
          return num + 2;
        }
@@ -280,7 +280,7 @@
   2) method
         1) `forEach(callbackfunc)`
             - `undefined` 반환  
-           ```
+           ```js
            const fruits = ['mango', 'papaya', 'pineapple', 'apple'];
 
            // Iterate over fruits below
@@ -291,7 +291,7 @@
         2) `map()`
            - __새로운 배열__ 반환
            - python과 동일
-           ```
+           ```js
            const animals = ['Hen', 'elephant', 'llama', 'leopard', 'ostrich', 'Whale', 'octopus', 'rabbit', 'lion', 'dog'];
 
            const secretMessage = animals.map(function(animals){return animals[0]})
@@ -307,7 +307,7 @@
            - 배열에서 첫번째로 만족하는 값의 인덱스를 반환 
         5) `reduce()`
            - 반복하며 배열의 값을 줄임 -> 단 하나의 값을 반환
-           ```
+           ```js
            const newNumbers = [1, 3, 5, 7];
 
            const newSum = newNumbers.reduce(function(accumulator, currentValue){
